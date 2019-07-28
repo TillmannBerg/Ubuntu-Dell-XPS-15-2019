@@ -82,3 +82,14 @@ Finally, we need a script executing the required `xrandr` command. Copy [this sc
 After all scripts have been added reload the acpi daemon so that they can have an effect, `sudo acpid reload`. If the behavior is unexpected, a machine reboot may help.
 
 Note that OLED displays only consume energy and age when the individual pixels are emitting light. Hence, it is advisable to choose dark background colors and install a dark scheme in your browser.
+
+## Hardware Acceleration in Chromium
+To be able to watch Youtube and other videos from a browser without draining the battery very quickly hardware acceleration for video decoding is required. Unfortunately, neither Googles Chrome(ium) nor Firefox offer hardware acceleration for Linux. There is a private Chromium package on offer that has hardware acceleration enabled, though. Beware that adding private package repositories introduces a security risk and that the following Chromium is based on the less stable beta version. Use at own risk.
+
+Add the private repository and install Chromium via:
+```
+sudo add-apt-repository ppa:saiarcot895/chromium-beta
+sudo apt update
+sudo apt install chromium-browser
+```
+For more details and instructions on possibly required driver updates see [here](www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html).
