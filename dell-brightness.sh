@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "$date oled brightess change triggered $1" >> /home/bergt/bar
 export XAUTHORITY=/run/user/1000/gdm/Xauthority 
 export DISPLAY=:0.0
 DISPLAYNAME=eDP-1
@@ -7,7 +6,6 @@ DISPLAYNAME=eDP-1
 OLED_BR=`xrandr --verbose | grep -i brightness | cut -f2 -d ' '`
 CURR=`LC_ALL=C /usr/bin/printf "%.*f" 1 $OLED_BR`
 
-echo "current $CURR" >> /home/bergt/bar
 MIN=0
 MAX=1.2
 
@@ -24,8 +22,6 @@ elif (( `echo "$VAL > $MAX" | bc -l` )); then
 else
     `xrandr --output $DISPLAYNAME --brightness $VAL` 2>&1 >/dev/null | logger -t oled-brightness
 fi
-
-exit 0
 
 # Set Intel backlight to fake value
 # to sync OSD brightness indicator to actual brightness

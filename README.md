@@ -60,9 +60,9 @@ This is undesirable. Not only will the screen often be too bright, it will also 
 ```
 xrandr --output eDP-1 --brightness 0.6
 ```
-to 60 % in this case. The output display `eDP-1` might change, if you should use the Nvidia instead of the Intel graphics card. Careful: 0 is black and black on OlED displays is really all black.
+to 60 % in this case. The output display `eDP-1` might change, if you should use the Nvidia instead of the Intel graphics card. Careful: 0 is black and black on OLED displays is really all black.
 
-The function keys can be mapped to use this command to change the brightness. ([Source for Lenove Thinkpad](https://askubuntu.com/questions/824949/lenovo-thinkpad-x1-yoga-oled-brightness))
+The function keys can be mapped to use this command to change the brightness. ([Source for Lenovo Thinkpad](https://askubuntu.com/questions/824949/lenovo-thinkpad-x1-yoga-oled-brightness))
 
 We first create two files that are triggered by the button presses. You need to create a file `/etc/acpi/events/dell-brightness-up` with the content
 ```
@@ -77,6 +77,6 @@ action=/etc/acpi/dell-brightness.sh down
 
 Finally, we need a script executing the required `xrandr` command. Copy [this script](dell-brightness.sh) to `/etc/acpi/dell-brightness.sh` and grand it execution rights with `sudo chmod u+x /etc/acpi/dell-brightness.sh`.
 
-After all scripts have been added reload the acpi daemon so that they can have an effect, `sudo acpid reload`. If the behavior is unexpected, a mechine reboot may help.
+After all scripts have been added reload the acpi daemon so that they can have an effect, `sudo acpid reload`. If the behavior is unexpected, a machine reboot may help.
 
 Note that OLED displays only consume energy and age when the individual pixels are emitting light. Hence, it is advisable to choose dark background colors and install a dark scheme in your browser.
