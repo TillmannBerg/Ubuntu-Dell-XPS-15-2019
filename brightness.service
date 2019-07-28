@@ -1,0 +1,11 @@
+[Unit]
+Description=Reduce brightness on boot
+
+[Service]
+Type=oneshot
+Environment="XAUTHORITY=/run/user/1000/gdm/Xauthority"
+Environment="DISPLAY=:0.0"
+ExecStart=/usr/bin/xrandr --output eDP-1 --brightness 0.5
+
+[Install]
+WantedBy=graphical.target
