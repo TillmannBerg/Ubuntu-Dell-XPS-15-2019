@@ -53,6 +53,8 @@ sudo systemctl enable powertop.service
 
 Voila, this should give you a laptop using around 7 W of power in idle (with a black screen).
 
+Note: I also tried running with the energy management tool _TLP_ but found it ineffective.
+
 ## Screen Brightness (OLED)
 When pressing the function keys to change the screen brightness, you will see the Ubuntu brightness icon and its brightness bar changing. However, the brightness of the screen will not change. Apparently, Ubuntu tries to change the background brightness of the screen. Since OLED screens do not have a background illumination, nothing happens.
 
