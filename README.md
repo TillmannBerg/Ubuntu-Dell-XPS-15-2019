@@ -1,7 +1,7 @@
 # Ubuntu-Dell-XPS-15-2019
 How to install Ubuntu on a Dell XPS 15 model from 2019?
 
-This page will explain how to fix a number of issues with the latest **Ubuntu 19.04** running on said laptop. Older Ubuntu versions will not work. Problems addressed are:
+This page will explain how to fix a number of issues with the latest **Ubuntu 19.10** running on said laptop. To use the WiFi card a Linux kernel 5.3 or later is required. Ubuntu 18.04.3 LTS _should_ therefore also work with this laptop. Problems addressed are:
 
 - CPU power management
 - Changing brightness of OLED screen with brightness keys
@@ -10,11 +10,11 @@ This page will explain how to fix a number of issues with the latest **Ubuntu 19
 
 ## Installation
 
-The most recent version of Dell notebooks only works with the latest Ubuntu version. Only *Ubuntu 19.04* or later can be successfully run on these machines. While it is possible to install Ubuntu 18.04 LTS, the power management for the latest CPU generation does not work leading to very high power consumption and a CPUpermanently at the thermal limit.  
+The most recent version of Dell notebooks only works with the latest Ubuntu version. Only *Ubuntu 19.10* or later can be successfully run on these machines. While it is possible to install Ubuntu 18.04 LTS, the power management for the latest CPU generation does not work leading to very high power consumption and a CPUpermanently at the thermal limit.  
 
 To install Ubuntu on a Dell XPS 15 you need to set your _Sata Operation_ in the laptops BIOS from _Raid_ to _AHCI_. Plugin a USB stick with the image of the latest Ubuntu and install from the stick.
 
-It is recommended to also install 3rd party software for which one needs to connect the laptop to the internet. *Note:* The internal wifi card does not work during the installation process. To connect to the internet an external WiFi adapter or some other network connection is required.
+It is recommended to also install 3rd party software for which one needs to connect the laptop to the internet.
 
 After the installation is complete, run
 ```
