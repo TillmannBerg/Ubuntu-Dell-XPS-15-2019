@@ -97,10 +97,4 @@ sudo apt install chromium-browser
 For more details and instructions on possibly required driver updates see [here](https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html).
 
 ## Keyboard backlight
-Keyboard backlight can be properly enable changing in `/etc/default/grub` then GRUB_CMDLINE_LINUX_DEFAULT setting to:
-
-    GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi"
-
-Adding `acpi_osi=` instructs the kernel to reply with an empty string (instead of 'Linux') when the BIOS queries about the running OS.
-
-Remember to run `sudo update-grub; sudo reboot` to make the changes effective.
+Keyboard backlight should work out of the box with BIOS 1.3.3
