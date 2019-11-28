@@ -1,6 +1,4 @@
 #!/bin/bash
-export XAUTHORITY=/run/user/1000/gdm/Xauthority 
-export DISPLAY=:0.0
 DISPLAYNAME=eDP-1
 
 OLED_BR=`xrandr --verbose | grep -i brightness | cut -f2 -d ' '`
