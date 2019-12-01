@@ -1,19 +1,23 @@
 # Ubuntu-Dell-XPS-15-2019
 How to install Ubuntu on a Dell XPS 15 model from 2019?
 
-This page will explain how to fix a number of issues with the latest **Ubuntu 19.10** running on said laptop. To use the WiFi card a Linux kernel 5.3 or later is required. Ubuntu 18.04.3 LTS _should_ therefore also work with this laptop. Problems addressed are:
+This page will explain how to fix a number of issues with the latest **Ubuntu 19.10** running on said laptop.
+To use the WiFi card a Linux kernel 5.3 or later is required. Ubuntu 18.04.3 LTS _should_ therefore also work with this laptop.
 
+Problems addressed:
 - CPU power management
 - Changing brightness of OLED screen with brightness keys
 - Enabling hardware acceleration for video decoding in Chrome
+
+Things that work out of the box with BIOS 1.3.3:
+- WiFi 
+- Touchpad
 - Keyboard backlight
 
 ## Installation
 
-The most recent version of Dell notebooks only works with the latest Ubuntu version. Only *Ubuntu 19.10* or later can be successfully run on these machines. While it is possible to install Ubuntu 18.04 LTS, the power management for the latest CPU generation does not work leading to very high power consumption and a CPUpermanently at the thermal limit.  
-
-To install Ubuntu on a Dell XPS 15 you need to set your _Sata Operation_ in the laptops BIOS from _Raid_ to _AHCI_. Plugin a USB stick with the image of the latest Ubuntu and install from the stick.
-
+To install Ubuntu on a Dell XPS 15 you need to set your _Sata Operation_ in the laptops BIOS from _Raid_ to _AHCI_.
+Plugin a USB stick with the image of the latest Ubuntu 19.10 and install from the stick.
 It is recommended to also install 3rd party software for which one needs to connect the laptop to the internet.
 
 After the installation is complete, run
@@ -22,6 +26,11 @@ sudo apt update
 sudo apt dist-upgrade -y
 ```
 to update the system to the latest versions.
+
+## BIOS update
+If your BIOS version is not up to date the Ubuntu Software manager
+_should_ offer you a firmware update. This will flash the BIOS upon the next reboot and should thus be done while the
+laptop is not running on battery. It is recommended to update the BIOS as this ensures working keyboard backlight.
 
 ## CPU power management
 Without further configuration the CPU will run quite hot and will quickly drain the battery. Install `powertop` and `thermald` to fix this.
@@ -95,6 +104,3 @@ sudo apt update
 sudo apt install chromium-browser
 ```
 For more details and instructions on possibly required driver updates see [here](https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html).
-
-## Keyboard backlight
-Keyboard backlight should work out of the box with BIOS 1.3.3
