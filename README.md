@@ -14,6 +14,9 @@ Things that work out of the box with BIOS 1.3.3:
 - Touchpad
 - Keyboard backlight
 
+Things that do not work:
+- Low power consumption with proper Nvidia graphics drivers _and_ working standby
+
 ## Installation
 
 To install Ubuntu on a Dell XPS 15 you need to set your _Sata Operation_ in the laptops BIOS from _Raid_ to _AHCI_.
@@ -31,6 +34,23 @@ to update the system to the latest versions.
 If your BIOS version is not up to date the Ubuntu Software manager
 _should_ offer you a firmware update. This will flash the BIOS upon the next reboot and should thus be done while the
 laptop is not running on battery. It is recommended to update the BIOS as this ensures working keyboard backlight.
+
+## Graphics card driver update
+Out of the box the power consumption of the laptop is fairly high at 25 W to 30 W. Apparently, the Nvidia GPU is always
+active and is not switched off or in power savings mode. This can be rectified with an Ubuntu tool. Run
+```
+sudo ubuntu-drivers autoinstall
+```
+([Source](https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-19-10-eoan-ermine-linux))
+If Secure Boot is active, which it should be, then a Machine Owner Key (MOK) needs to be added to the firmware.
+The tool `ubuntu-drivers` tool will do this, but you need to specify a password. This password will only be used once
+upon the next reboot to ensure that you are the one adding a MOK and not some malware (this is the point of Secure Boot).
+
+With the updated drivers the idle power consumption falls to around 12 W, which is still more than the 6 W or so minimum
+that this laptop can achieve.
+
+**Caveat:** With the updated drivers the Standby mode seems to break. While the system does go into standby, the GPU
+"falls off the bus" when waking up. Requiring a hard reboot. 
 
 ## CPU power management
 Without further configuration the CPU will run quite hot and will quickly drain the battery. Install `powertop` and `thermald` to fix this.
