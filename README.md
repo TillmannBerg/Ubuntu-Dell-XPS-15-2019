@@ -6,6 +6,7 @@ This page will explain how to fix a number of issues with the latest **Ubuntu 19
 - CPU power management
 - Changing brightness of OLED screen with brightness keys
 - Enabling hardware acceleration for video decoding in Chrome
+- Keyboard backlight
 
 ## Installation
 
@@ -94,3 +95,6 @@ sudo apt update
 sudo apt install chromium-browser
 ```
 For more details and instructions on possibly required driver updates see [here](https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html).
+
+## Keyboard backlight
+Keyboard backlight should work out of the box with BIOS 1.3.3
