@@ -3,7 +3,7 @@ XAUTHORITY=/run/user/1000/gdm/Xauthority
 DISPLAY=:0.0
 DISPLAYNAME=$(xrandr --listmonitors | awk '$1 == "0:" {print $4}')
 
-OLED_BR=`xrandr --verbose | grep -i brightness | cut -f2 -d ' '`
+OLED_BR=`xrandr --verbose | grep -i brightness -m 1 | cut -f2 -d ' '`
 CURR=`LC_ALL=C /usr/bin/printf "%.*f" 1 $OLED_BR`
 
 MIN=0
